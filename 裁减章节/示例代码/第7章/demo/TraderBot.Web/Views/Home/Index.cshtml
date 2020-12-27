@@ -1,0 +1,87 @@
+﻿@model IEnumerable<TradeBot.Strategy.Band.Db.DbPlacedOrder>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+    <div class="text-center">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Coin)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BrokerSite)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AskOrderId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AskQuote)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AskPrice)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Closed)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BidOrderId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BidQuote)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BidPrice)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TradingVolume)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Coin)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BrokerSite)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AskOrderId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AskQuote)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AskPrice)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Closed)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BidOrderId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BidQuote)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BidPrice)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TradingVolume)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CommentDemo</name>
+    </assembly>
+    <members>
+        <member name="T:CommentDemo.Program">
+            <summary>
+            文档注释，这里可以写上对Program类型的注释说明
+            </summary>
+        </member>
+        <member name="M:CommentDemo.Program.Main(System.String[])">
+            <summary>
+            Main方法的注释说明，如：
+            Main方法是C#程序的入口方法
+            </summary>
+            <param name="args">这是参数args的注释说明</param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,97 @@
+﻿@model TraderBot.Web.Models.TradeOrder
+
+@{
+    ViewBag.Title = "交易所下单";
+}
+
+<h2>交易所下单</h2>
+
+@using (Html.BeginForm("Index", "Trade", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    var sides = new List<SelectListItem>()
+{
+                new SelectListItem() { Value = "Buy",Text = "Buy"},
+                new SelectListItem() { Value = "Sell",Text = "Sell"}
+            };
+
+    var sites = new List<SelectListItem>()
+{
+                new SelectListItem() { Value = "huobi",Text = "huobi"},
+                new SelectListItem() { Value = "fake",Text = "fake"}
+            };
+
+    var quotes = new List<SelectListItem>()
+{
+                new SelectListItem() { Value = "BTC",Text = "BTC"},
+                new SelectListItem() { Value = "USDT",Text = "USDT"},
+                new SelectListItem() { Value = "ETH",Text = "ETH"}
+            };
+
+    var MessageClass = "";
+    if (ViewBag.ErrorMessage != null)
+    {
+        MessageClass = ViewBag.ErrorMessage.Contains("已完成") ? "text-success" : "text-danger";
+    }
+    <div class="form-horizontal">
+        <p class="@MessageClass">@ViewBag.ErrorMessage</p>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Side, @"交易方式", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Side, sides, "请选择交易方式", new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Site, "交易所", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Site, sites, "请选择交易所", new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Quote, "交易对", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Quote, quotes, "请选择交易对", new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Coin, "数字币", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Coin, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Coin)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Price, "单价", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="text" class="form-control" name="Price" id="Price" value="@((Model != null && Model.Price.HasValue) ? Model.Price.Value.ToString("0.0000000000") : "0")" />
+                @Html.ValidationMessageFor(model => model.Price)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Volume, "数量", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="text" class="form-control" name="Volume" id="Volume" value="@((Model != null && Model.Volume.HasValue) ? Model.Volume.Value.ToString("0.0000000000") : "0")" />
+                @Html.ValidationMessageFor(model => model.Volume)
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="下单" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

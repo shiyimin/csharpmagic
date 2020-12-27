@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <RootNamespace>TraderBot.Core</RootNamespace>
+    <AssemblyName>TraderBot.Core</AssemblyName>
+  </PropertyGroup>
+
+</Project>

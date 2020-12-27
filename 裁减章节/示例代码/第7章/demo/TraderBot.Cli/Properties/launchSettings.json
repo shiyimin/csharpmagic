@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TraderBot.Cli": {
+      "commandName": "Project",
+      "commandLineArgs": "trade -s fake -q USDT -c BTC -p 10000 -v 1 -d buy"
+    }
+  }
+}
