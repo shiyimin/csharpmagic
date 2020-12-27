@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "embedipy": {
+      "commandName": "Project",
+      "commandLineArgs": "\"D:\\workspace\\writing\\china-pub\\C# Programming Magic\\sample-code\\第五章\\dlr\\demo.py\""
+    }
+  }
+}

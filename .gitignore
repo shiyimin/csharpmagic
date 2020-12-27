@@ -1,0 +1,8 @@
+pictures/*.jpg
+pictures/*.png
+*.exe
+*.pdb
+.vs
+obj
+.DS_Store
+第2章/MMapDemo/MMapDemo/OutPic.bmp

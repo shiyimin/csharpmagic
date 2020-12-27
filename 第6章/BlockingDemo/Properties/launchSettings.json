@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "BlockingDemo": {
+      "commandName": "Project",
+      "commandLineArgs": "\"D:\\workspace\\writing\\china-pub\\C# Programming Magic\\sample-code\\第3章\\MMapDemo\\MMapDemo\\DemoPic.bmp\" \"D:\\workspace\\writing\\china-pub\\C# Programming Magic\\sample-code\\第3章\\MMapDemo\\MMapDemo\\OutPicMultiThread.bmp\" 3"
+    }
+  }
+}
